@@ -1,0 +1,127 @@
+create virtual environment - py 3.7.4
+pip install virtualenv
+in terminal:
+>>virtualenv environment_3_7_4
+>>ls
+>>source environment_3_7_4/Scripts/activate
+this is for windows
+python backend, js frontend
+>> pip install django
+>> pip install djoser (auth, token)
+>> pip install pillow 
+>> pip install stripe
+for the django part of proj
+>>django-admin startproject hobbithole
+>>ls
+environment_3_7_4  hobbithole  todo.txt
+(environment_3_7_4)
+>>cd hobbithole
+(environment_3_7_4)
+>>ls
+hobbithole  manage.py
+(environment_3_7_4)
+
+Now look in the hobbithole folder created, edit the settings.py
+here default INSTALLED_APPS there, you need to add a few more
+Next add cors allowed url - localhost
+then in urls.py addd djoser 
+now to initialise DB
+>>python manage.py make migrations
+when opening again you need to navigate to hobbithole 
+##IMP: missing comma at the end gave corsheaders not found error in settings
+
+--ERROR still for corsheaders
+>>pip install django-cors-headers
+resolved
+>>python manage.py make migrations
+unknown "make:
+---In urls.py use curved brackts instead of braces
+new error: CORS_ALLOWED_ORIGINS should be a sequence of strings.
+was using braces should be []
+
+>>python manage.py makemigrations
+Now this worked :) 
+
+>>python manage.py migrate
+now db table is created, first name last name email, etc
+
+to create a super user
+>>python manage.py createsuperuser
+give name, email, pswd bilbo baggins is hobbithole
+
+--to start dev server
+>>python manage.py runserver
+open url http://127.0.0.1:8000/ in browser, page not found with
+admin/
+api/v1
+api/v1
+add /admin to url, login using pswd, you will see only 1 user
+
+
+as per tutorial to be run in cmd
+npm install -g @vue/cli
+not working as nodejs not INSTALLED 
+tried open new terminal >>pip install vue
+
+NEXT STEP: install nodejs and try, tutorial 12:26
+
+NOTE: dev server runnig "Quit the server with CTRL-BREAK."
+use ctrl+c
+
+16/04
+installed nodejs from site 
+restarted cmd '
+>>npm -v 
+>>node -v 
+
+now trying: in cmd
+>>npm install -g @vue/cli 
+>>vue create hobbithole_vue
+select manually, choose using space router, vue, css preproc, babel - remove linter
+use 3.x preview
+history mode yes
+Saas scs preprocessor
+dedeicated yes, save no
+
+first chg dir to vue you created i.e. hobbithole_vue
+next >> npm install axios 
+talk t obackend 
+>> npm install bulma
+>> npm run serve    -->to check it works start dev server
+open the localhost link you got, your frontend vue app!!
+
+*****INSTALL AND SETUP VUE IS DONE**** (Djanga installed earlier)
+***to include font awesome for icons***
+add link href in index.html https://cdnjs.com/libraries/font-awesome
+
+***TO SETUP BASE TEMPLATE**
+open the Vue app file and remove default stuff from style tag
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+
+remove nav bar  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </div>
+
+make a new div id wrapper
+in vscode search for vue syntax and install extension 
+In folder structure under views, check Home, remove default structure
