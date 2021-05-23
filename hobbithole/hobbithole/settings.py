@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 #this was added
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080", #should be frontend address
+    "http://192.168.1.100:8080",
     #"http://localhost:8000",
 ]
 

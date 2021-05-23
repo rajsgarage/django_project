@@ -16,3 +16,15 @@ class ProductSerializer(serializers.ModelSerializer):
             "get_thumbnail"
         )
         #field= '__all__'
+
+class CategorySerializer(serializers.ModelSerializer):
+    products = ProductSerializer(many=True)
+    class Meta:
+        model = Category
+        fields = (
+            "id",
+            "name",
+            
+            "get_absolute_url", #slug comes in this
+            "products", #use same product serializer
+        )
